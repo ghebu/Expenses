@@ -37,10 +37,18 @@ def getTheLastMonth():
 
 
 #Display all the values from sheet('Chirie')
-for obj in sheet['A1':'K13']:
+value_to_coordinates = {}
+for obj in sheet['A1':'K15']:
     for cell in obj:
+        # if str(getTheLastMonth()) == str(months[monthDate]):
+        #     print('{} coordinates for the curent month'.format(cell.coordinate))
         if str(cell.value) != 'None':
-            print(cell.coordinate, str(cell.value))
+            value_to_coordinates[str(cell.value)] = str(cell.coordinate)
 
+#Extract the value for the last month
+for d,k in  value_to_coordinates.items():
+    print('HERE ARE THE DIC VALUES {} - {}'.format(d,k))
 #print(getTheLastMonth())
 getTheLastMonth()
+
+print(str(getTheLastMonth()), str(monthDate))
